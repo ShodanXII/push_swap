@@ -6,7 +6,7 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 13:47:04 by achat             #+#    #+#             */
-/*   Updated: 2025/02/06 18:09:58 by achat            ###   ########.fr       */
+/*   Updated: 2025/02/06 20:12:27 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,24 +36,41 @@ int	ft_atoi(const char *str)
 	return (result * sign);
 }
 
-void	data_init(char **av)
-{
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	int		i;
-	int		j = 0;
 
-	stack_a = create_stack();
-	stack_b = create_stack();
-	i = 1;
-	while (av[i])
+void data_init(char **av)
+{
+    t_stack *stack_a;
+    t_stack *stack_b;
+    int     i;
+
+    stack_a = create_stack();
+    stack_b = create_stack();
+    if (!stack_a || !stack_b)
+        return;
+
+    i = 1;
+    while (av[i])
+    {
+        push(stack_a, ft_atoi(av[i]));
+        i++;
+    }
+    sort_stack(stack_a);
+	print_stack(stack_a);
+}
+
+
+void print_stack(t_stack *stack)
+{
+	t_node *current;
+
+	if (!stack || !stack->top)
+		return;
+	current = stack->top;
+	while (current)
 	{
-		push(stack_a, ft_atoi(av[i]));
-		i++;
-	}
-	while(stack_a->size)
-	{
-		stack_a->top = stack_a->top->next;
-		stack_a->size--;
+		printf("value ----->>>>>>%d\n", current->value);
+		printf("index ----->>>>>>%d\n", current->index);
+		current = current->next;
 	}
 }
+

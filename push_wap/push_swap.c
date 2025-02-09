@@ -6,7 +6,7 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 11:36:16 by achat             #+#    #+#             */
-/*   Updated: 2025/02/06 18:44:20 by achat            ###   ########.fr       */
+/*   Updated: 2025/02/06 19:48:24 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ static int is_valid_input(char **argv, int argc)
 
 int main(int argc, char **argv)
 {
+	t_stack *stack_a;
+	t_stack *stack_b;
 	if (!is_valid_input(argv, argc) || argc == 1)
 	{
 		error();
@@ -60,7 +62,7 @@ int main(int argc, char **argv)
 	{
 		data_init(argv);
 	}
-	free_stack(t_stack);
+	return (0);
 	// Proceed with stack creation
 	// ...
 }
