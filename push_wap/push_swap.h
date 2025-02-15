@@ -30,7 +30,17 @@ void	data_init(char **av);
 void	sort_stack(t_stack *stack);
 void	index_stack(t_stack *stack);
 void	print_stack(t_stack *stack);
-void	pb(t_stack *stack_a, t_stack *stack_b);
 void	push(t_stack *stack, int value);
+void	pa(t_stack *stack_a, t_stack *stack_b);
+void	pb(t_stack *stack_a, t_stack *stack_b);
+void	sa(t_stack *stack);
+void	sb(t_stack *stack);
+void	ss(t_stack *stack_a, t_stack *stack_b);
+void	ra(t_stack *stack);
+void	rb(t_stack *stack);
+void	rr(t_stack *stack_a, t_stack *stack_b);
+void	rra(t_stack *stack);
+void	rrb(t_stack *stack);
+void	rrr(t_stack *stack_a, t_stack *stack_b);
 
 #endif

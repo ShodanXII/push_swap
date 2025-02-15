@@ -6,7 +6,7 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 13:14:03 by achat             #+#    #+#             */
-/*   Updated: 2025/02/15 10:26:17 by achat            ###   ########.fr       */
+/*   Updated: 2025/02/15 12:04:37 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,10 @@ void free_stack(t_stack *stack)
 		current = next;
 	}
 	free(stack);
+}
+int	is_empty(t_stack *stack)
+{
+	if (!stack || !stack->top)
+		return (1);
+	return (0);
 }

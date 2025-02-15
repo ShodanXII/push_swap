@@ -1,42 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_error.c                                      :+:      :+:    :+:   */
+/*   rr.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/09 13:34:26 by achat             #+#    #+#             */
-/*   Updated: 2025/02/15 12:21:33 by achat            ###   ########.fr       */
+/*   Created: 2025/02/15 12:11:33 by achat             #+#    #+#             */
+/*   Updated: 2025/02/15 12:23:23 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "push_swap.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include "push_swap.h"
 
-int	duplacate(char **argv)
+void	rr(t_stack *stack_a, t_stack *stack_b)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (argv[i])
-	{
-		j = 0;
-		while (argv[i][j + 2])
-		{
-			if(argv[i][j] == argv[i][j + 2])
-				return(1);
-			j++;
-		}
-		i++;
-	}
-	return 0;
-}
-
-int main(int argc, char **argv)
-{
-	if(duplacate(argv))
-		ft_printf("error\n");
-	return 0;
+	ra(stack_a);
+	rb(stack_b);
+	ft_printf("rr\n");
 }

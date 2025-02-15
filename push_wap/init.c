@@ -6,7 +6,7 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 13:47:04 by achat             #+#    #+#             */
-/*   Updated: 2025/02/10 18:17:53 by achat            ###   ########.fr       */
+/*   Updated: 2025/02/15 12:21:33 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void print_stack(t_stack *stack)
 	current = stack->top;
 	while (current)
 	{
-		printf("value ----->>>>>>%d it index----->>%d\n", current->value, current->index);
+		ft_printf("value ----->>>>>>%d it index----->>%d\n", current->value, current->index);
 		current = current->next;
 	}
 }

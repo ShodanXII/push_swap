@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strings_ineed.c                                    :+:      :+:    :+:   */
+/*   sa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/05 13:38:54 by achat             #+#    #+#             */
-/*   Updated: 2025/02/06 18:11:11 by achat            ###   ########.fr       */
+/*   Created: 2025/02/15 11:53:05 by achat             #+#    #+#             */
+/*   Updated: 2025/02/15 12:22:20 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	error()
+void sa(t_stack *stack)
 {
-	write(0, "Error\n", 6);
-	exit(0);
+	t_node	*temp;
+	int		temp_val;
+	int		temp_index;
+
+	if (!stack || !stack->top || !stack->top->next)
+		return;
+	temp = stack->top;
+	temp_val = stack->top->value;
+	temp_index = stack->top->index;
+	stack->top->value = stack->top->next->value;
+	stack->top->index = stack->top->next->index;
+	stack->top->next->value = temp_val;
+	stack->top->next->index = temp_index;
+	ft_printf("sa\n");
 }
