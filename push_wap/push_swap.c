@@ -6,7 +6,7 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 11:36:16 by achat             #+#    #+#             */
-/*   Updated: 2025/02/10 18:16:33 by achat            ###   ########.fr       */
+/*   Updated: 2025/02/15 10:18:35 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,4 @@ int main(int argc, char **argv)
 		data_init(argv);
 	}
 	return (0);
-	// Proceed with stack creation
-	// ...
 }
