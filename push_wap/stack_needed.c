@@ -6,7 +6,7 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 13:14:03 by achat             #+#    #+#             */
-/*   Updated: 2025/02/15 12:04:37 by achat            ###   ########.fr       */
+/*   Updated: 2025/02/17 21:54:48 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void index_stack(t_stack *stack)
 		compare = stack->top;
 		while (compare)
 		{
-			if (current->value < compare->value)
+			if (current->value > compare->value)
 				index++;
 			compare = compare->next;
 		}

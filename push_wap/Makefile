@@ -1,56 +1,48 @@
 CC      := cc
 CFLAGS  := -Wall -Wextra -Werror
 
-SRCDIR  := src
-INCDIR  := include
-LIBDIR  := libft
+LIBFTDIR    := libft
+PRINTF_DIR  := ft_printf
 
-LIBFT   := $(LIBDIR)/libft.a
-PRINTF  := $(LIBDIR)/ft_printf.a
+LIBFT       := $(LIBFTDIR)/libft.a
+PRINTF      := $(PRINTF_DIR)/libftprintf.a
 
-SRC     := error.c init.c moves.c pa.c pb.c \
-           push_swap.c ra.c rb.c rr.c rra.c rrb.c rrr.c \
-           sa.c sb.c ss.c stack_needed.c
+SRC         := error.c init.c moves.c pa.c pb.c \
+               push_swap.c ra.c rb.c rr.c rra.c rrb.c \
+               rrr.c sa.c sb.c ss.c stack_needed.c \
+			   sorted_reference.c algo_wdakxi.c \
+			   phase1.c paramiters.c
 
-# Object files
-OBJ     := $(SRC:%.c=$(SRCDIR)/%.o)
+OBJ         := $(SRC:.c=.o)
 
-# Executable name
-NAME    := push_swap
+NAME        := push_swap
 
-# Include directories
-INCLUDES := -I$(INCDIR) -I$(LIBDIR)
+INCLUDES    := -I. -I$(LIBFTDIR) -I$(PRINTF_DIR)
 
-# Default target
-all: $(NAME)
+all: $(LIBFT) $(PRINTF) $(NAME)
 
-# Link the executable
-$(NAME): $(LIBFT) $(PRINTF) $(OBJ)
+$(NAME): $(OBJ) $(LIBFT) $(PRINTF)
 	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) -o $(NAME)
 
-# Compile source files into object files
-$(SRCDIR)/%.o: $(SRCDIR)/%.c
+%.o: %.c push_swap.h
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-# Build libft
 $(LIBFT):
-	$(MAKE) -C $(LIBDIR)
+	$(MAKE) -C $(LIBFTDIR)
 
-# Build ft_printf
 $(PRINTF):
-	$(MAKE) -C $(LIBDIR) ft_printf.a
+	$(MAKE) -C $(PRINTF_DIR)
 
-# Clean object files
 clean:
 	rm -f $(OBJ)
-	$(MAKE) -C $(LIBDIR) clean
+	$(MAKE) -C $(LIBFTDIR) clean
+	$(MAKE) -C $(PRINTF_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
-	rm -f $(LIBFT)
-	rm -f $(PRINTF)
+	$(MAKE) -C $(LIBFTDIR) fclean
+	$(MAKE) -C $(PRINTF_DIR) fclean
 
-# Rebuild everything
 re: fclean all
 
 .PHONY: all clean fclean re

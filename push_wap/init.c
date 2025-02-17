@@ -6,7 +6,7 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 13:47:04 by achat             #+#    #+#             */
-/*   Updated: 2025/02/15 12:21:33 by achat            ###   ########.fr       */
+/*   Updated: 2025/02/17 22:14:51 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void data_init(char **av)
     t_stack *stack_a;
     t_stack *stack_b;
     int     i;
+	int		*ref;
 
     stack_a = create_stack();
     stack_b = create_stack();
@@ -54,8 +55,8 @@ void data_init(char **av)
         push(stack_a, ft_atoi(av[i]));
         i++;
     }
-    sort_stack(stack_a);
-	print_stack(stack_a);
+	ref = creat_sorted_ref(stack_a);
+	phase1(stack_a, stack_b, ref);
 }
 
 
@@ -68,7 +69,7 @@ void print_stack(t_stack *stack)
 	current = stack->top;
 	while (current)
 	{
-		ft_printf("value ----->>>>>>%d it index----->>%d\n", current->value, current->index);
+		// ft_printf("value ----->>>>>>%d it index----->>%d\n", current->value, current->index);
 		current = current->next;
 	}
 }
