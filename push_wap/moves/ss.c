@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ss.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/15 12:03:04 by achat             #+#    #+#             */
-/*   Updated: 2025/02/17 20:29:24 by achat            ###   ########.fr       */
+/*   Created: 2025/02/15 12:00:59 by achat             #+#    #+#             */
+/*   Updated: 2025/02/22 01:32:57 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	error(void)
+void ss(data *stack_a, data *stack_b)
 {
-	ft_printf("Error\n");
-	exit(1);
+    what_to_swap(stack_a, 'a');
+    what_to_swap(stack_b, 'b');
+    ft_printf("ss\n");
 }

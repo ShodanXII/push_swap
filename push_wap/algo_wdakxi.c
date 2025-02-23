@@ -6,32 +6,43 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 20:20:15 by achat             #+#    #+#             */
-/*   Updated: 2025/02/17 20:36:42 by achat            ###   ########.fr       */
+/*   Updated: 2025/02/22 00:26:42 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	bubble_sort(int *array, int size)
+void    algo_wdakxi(data *data)
 {
-    int i;
-    int j;
-    int temp;
-
-    i = 0;
-    while (i < size - 1)
-    {
-        j = 0;
-        while (j < size - i - 1)
-        {
-            if (array[j] > array[j + 1])
-            {
-                temp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = temp;
-            }
-            j++;
-        }
-        i++;
-    }
+	if(!is_sorted(data))
+	{
+		check_what_to_do(data);
+		phase1(data);
+	}
 }
+
+void	bubble_sort(data *data, int size)
+{
+	int	i;
+	int	j;
+	int	temp;
+
+	i = 0;
+	while (i < size)
+	{
+		j = i + 1;
+		while (j < size)
+		{
+			if (data->sorted_ref[i] > data->sorted_ref[j])
+			{
+				temp = data->sorted_ref[i];
+				data->sorted_ref[i] = data->sorted_ref[j];
+				data->sorted_ref[j] = temp;
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
+

@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ra.c                                               :+:      :+:    :+:   */
+/*   rrr.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/15 12:06:13 by achat             #+#    #+#             */
-/*   Updated: 2025/02/15 12:22:54 by achat            ###   ########.fr       */
+/*   Created: 2025/02/15 12:14:32 by achat             #+#    #+#             */
+/*   Updated: 2025/02/22 01:29:36 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void    ra(t_stack *stack)
+void	rrr(data *stack_a, data *stack_b)
 {
-    t_node  *temp;
-    t_node  *last;
-
-    if (!stack || !stack->top || !stack->top->next)
-        return;
-    temp = stack->top;
-    last = stack->top;
-    while (last->next)
-        last = last->next;
-    stack->top = stack->top->next;
-    last->next = temp;
-    temp->next = NULL;
-    ft_printf("ra\n");
+	rev_rotate(stack_a->a, stack_a->size);
+	rev_rotate(stack_b->b, stack_b->b_size);
+	ft_printf("rrr\n");
 }

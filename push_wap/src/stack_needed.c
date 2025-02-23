@@ -1,30 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb.c                                               :+:      :+:    :+:   */
+/*   stack_needed.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/15 12:10:47 by achat             #+#    #+#             */
-/*   Updated: 2025/02/15 12:22:20 by achat            ###   ########.fr       */
+/*   Created: 2025/02/05 13:14:03 by achat             #+#    #+#             */
+/*   Updated: 2025/02/22 16:27:04 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void   rb(t_stack *stack)
+int	is_sorted(data *data)
 {
-    t_node  *temp;
-    t_node  *last;
+	int	i;
+	int	j;
 
-    if (!stack || !stack->top || !stack->top->next)
-        return;
-    temp = stack->top;
-    last = stack->top;
-    while (last->next)
-        last = last->next;
-    stack->top = stack->top->next;
-    last->next = temp;
-    temp->next = NULL;
-    ft_printf("rb\n");
+	i = 0;
+	j = 0;
+	while (i < *(data->size) - 1)
+	{
+		if (data->a[i] < data->a[i + 1])
+			j++;
+		else
+			return (0);
+		i++;
+	}
+	if (j == *(data->size) - 1)
+		return (1);
+	return (0);
+}
+void print(data *data)
+{
+	int i;
+
+	i = 0;
+	while (i < *(data->size))
+	{
+		ft_printf("%d  ", data->a[i]);
+		i++;
+	}
 }

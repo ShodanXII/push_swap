@@ -1,20 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ss.c                                               :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/15 12:00:59 by achat             #+#    #+#             */
-/*   Updated: 2025/02/15 12:22:20 by achat            ###   ########.fr       */
+/*   Created: 2025/02/15 12:06:13 by achat             #+#    #+#             */
+/*   Updated: 2025/02/22 01:43:07 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void ss(t_stack *stack_a, t_stack *stack_b)
+static void	ft_rotate(int *stack, int *size)
 {
-    sa(stack_a);
-    sb(stack_b);
-    ft_printf("ss\n");
+	int	tmp;
+	int	j;
+
+	j = 0;
+	tmp = stack[0];
+	while (j < *size - 1)
+	{
+		stack[j] = stack[j + 1];
+		j++;
+	}
+	stack[j] = tmp;
 }
+
+void	what_to_rotate(data *data, char c)
+{
+	if (c == 'a')
+	{
+		ft_rotate(data->a, data->size);
+		write(1, "ra\n", 3);
+	}
+	else if (c == 'b')
+	{
+		ft_rotate(data->b, data->b_size);
+		write(1, "rb\n", 3);
+	}
+}
+

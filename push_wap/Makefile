@@ -7,11 +7,14 @@ PRINTF_DIR  := ft_printf
 LIBFT       := $(LIBFTDIR)/libft.a
 PRINTF      := $(PRINTF_DIR)/libftprintf.a
 
-SRC         := error.c init.c moves.c pa.c pb.c \
-               push_swap.c ra.c rb.c rr.c rra.c rrb.c \
-               rrr.c sa.c sb.c ss.c stack_needed.c \
-			   sorted_reference.c algo_wdakxi.c \
-			   phase1.c paramiters.c
+SRC         := moves/push.c moves/rev_rotate.c \
+				moves/rotate.c moves/rr.c		\
+				moves/rrr.c moves/ss.c			\
+				moves/swap.c phases/calculate_parramiters.c \
+				phases/five.c phases/four.c	\
+				phases/phase1.c phases/phase2.c \
+				src/stack_needed.c push_swap.c \
+				algo_wdakxi.c
 
 OBJ         := $(SRC:.c=.o)
 

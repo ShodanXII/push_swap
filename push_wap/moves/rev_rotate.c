@@ -1,19 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pb.c                                               :+:      :+:    :+:   */
+/*   rev_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/15 12:05:40 by achat             #+#    #+#             */
-/*   Updated: 2025/02/15 12:22:20 by achat            ###   ########.fr       */
+/*   Created: 2025/02/15 12:12:21 by achat             #+#    #+#             */
+/*   Updated: 2025/02/22 01:29:04 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	pb(t_stack *stack_a, t_stack *stack_b)
+void	rev_rotate(int *stack, int *count)
 {
-	push_to_stack(stack_a, stack_b);
-	ft_printf("pb\n");
+	int	tmp;
+	int	j;
+
+	j = *count;
+	tmp = stack[*(count) - 1];
+	while (--j > 0)
+		stack[j] = stack[j - 1];
+	stack[0] = tmp;
+}
+
+void	what_rev_rotate(data *data, char c)
+{
+	if (c == 'a')
+	{
+		rev_rotate(data->a, data->size);
+		write(1, "rra\n", 4);
+	}
+	else if (c == 'b')
+	{
+		rev_rotate(data->b, data->b_size);
+		write(1, "rrb\n", 4);
+	}
 }

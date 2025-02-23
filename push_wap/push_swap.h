@@ -2,59 +2,57 @@
 #define PUSHSWAP_H
 
 #include <stdlib.h>
-#include <stdio.h>
 #include <unistd.h>
 #include <limits.h>
 #include "libft/libft.h"
 #include "ft_printf/ft_printf.h"
 
-typedef struct s_node
-{
-	int				value;
-	int				index;
-	struct s_node	*next;
-} t_node;
+typedef struct s_data {
+	char	**ptr;
+	char	*cnt_stirng;
+	int		*offset;
+	int		*start;
+	int		*end;
+	int		*size;
+	int		*bottom;
+	int		*a;
+	int		*b_size;
+	int		*b;
+	int		*sorted_ref;
+	int		*middile;
+	int		*first_tottal_number;
+}				data;
 
-typedef struct s_stack
-{
-	t_node	*top;
-	int		size;
-} t_stack;
-typedef struct s_params
-{
-	int	n;
-	int middle;
-	int	offset;
-	int	start;
-	int	end;
-}	t_params;
 
-t_stack *create_stack(void);
-void	push_to_stack(t_stack *stack_a, t_stack *stack_b);
-int		is_empty(t_stack *stack);
-void	free_stack(t_stack *stack);
-void	error(void);
-void	data_init(char **av);
-void	sort_stack(t_stack *stack);
-void	index_stack(t_stack *stack);
-void	print_stack(t_stack *stack);
-void	push(t_stack *stack, int value);
-void	pa(t_stack *stack_a, t_stack *stack_b);
-void	pb(t_stack *stack_a, t_stack *stack_b);
-void	sa(t_stack *stack);
-void	sb(t_stack *stack);
-void	ss(t_stack *stack_a, t_stack *stack_b);
-int		*extract_values(t_stack *stack);
-void	ra(t_stack *stack);
-void	rb(t_stack *stack);
-void	rr(t_stack *stack_a, t_stack *stack_b);
-void    phase1(t_stack *stack_a, t_stack *stack_b,int *sorted_ref);
-void	rra(t_stack *stack);
-void	rrb(t_stack *stack);
-void	bubble_sort(int *array, int size);
-t_params calculate_phase1_params(t_stack *stack);
-int		*creat_sorted_ref(t_stack *stack);
-int		is_sorted(t_stack *stack);
-void	rrr(t_stack *stack_a, t_stack *stack_b);
+void	what_to_swap(data *data, char c);
+void	rev_rotate(int *stack, int *count);
+int		is_sorted(data *data);
+void    algo_wdakxi(data *data);
+void	ft_swap(int *stack);
+void	ft_push(int *from, int *to, int *from_count, int *to_count);
+void	check_what_to_do(data *data);
+void	what_rev_rotate(data *data, char c);
+void	ss(data *stack_a, data *stack_b);
+void	rev_rotate(int *stack, int *count);
+void	what_to_push(data *data, char c);
+void	simple_sort(data *data);
+void	phase2(data *data);
+void	last_in_first_out(data *data, int i);
+void	four(data *data);
+void	ft_select(data *data, int loc);
+void	what_to_push(data *data, char c);
+void	low_sort(data *data);
+void	what_rev_rotate(data *data, char c);
+void	what_to_rotate(data *data, char c);
+void    phase1(data *data);
+void print(data *data);
+void	five(data *data);
+void	five(data *data);
+void	simple_sort(data *data);
+int		bigger(data *data);
+void	bubble_sort(data *data, int size);
+void	rr(data *stack);
+int		is_sorted(data *stack);
+void	rrr(data *stack_a, data *stack_b);
 
 #endif
