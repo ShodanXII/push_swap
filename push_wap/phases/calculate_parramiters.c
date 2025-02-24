@@ -6,7 +6,7 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 23:08:59 by achat             #+#    #+#             */
-/*   Updated: 2025/02/22 22:00:21 by achat            ###   ########.fr       */
+/*   Updated: 2025/02/24 20:19:56 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void   check_dup(data *data)
 		while (j < *(data->size))
 		{
 			if (data->a[i] == data->a[j])
-				exit(write(1, "Error\n", 6));
+			error();
 			j++;
 		}
 		i++;
@@ -53,10 +53,7 @@ void    check_what_to_do(data *data)
 	*(data->end) = *(data->middile) + *(data->offset);
 	if (*(data->end) >= *(data->size))
 		*(data->end) = *(data->size) - 1;
-	ft_printf("start = %d\n", *(data->start));
-	ft_printf("end = %d\n", *(data->end));
-	ft_printf("middile = %d\n", *(data->middile));
-	ft_printf("offset = %d\n", *(data->offset));
+	*(data->b_size) = 0;
 	check_dup(data);
 }
 void	ft_select(data *data, int loc)

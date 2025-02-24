@@ -6,7 +6,7 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 01:03:27 by achat             #+#    #+#             */
-/*   Updated: 2025/02/22 01:49:24 by achat            ###   ########.fr       */
+/*   Updated: 2025/02/24 11:47:02 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	low_sort(data *data)
 	}
 }
 
-void	five(data *data)
+void	 five(data *data)
 {
 	if (is_sorted(data))
 		exit(0);

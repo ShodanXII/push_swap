@@ -6,7 +6,7 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 20:20:15 by achat             #+#    #+#             */
-/*   Updated: 2025/02/22 00:26:42 by achat            ###   ########.fr       */
+/*   Updated: 2025/02/24 20:18:57 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ void    algo_wdakxi(data *data)
 		check_what_to_do(data);
 		phase1(data);
 	}
+}
+void error()
+{
+		write(2,"Error\n", 6);
+		exit(1);
 }
 
 void	bubble_sort(data *data, int size)

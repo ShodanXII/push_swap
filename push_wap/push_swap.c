@@ -6,7 +6,7 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 11:36:16 by achat             #+#    #+#             */
-/*   Updated: 2025/02/22 21:57:16 by achat            ###   ########.fr       */
+/*   Updated: 2025/02/24 20:19:36 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,51 +22,35 @@ static void checker(char *str)
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
-		{
-			ft_printf("Error\n");
-			exit(1);
-		}
+			error();
 		else if (ft_atoi(str) > INT_MAX || ft_atoi(str) < INT_MIN)
-		{
-			ft_printf("Error\n");
-			exit(1);
-		}
+			error();
 		i++;
 	}
 }
 
 static void parsing(data *data, char *str)
 {
-    int i;
+    char **split_args = ft_split(str, ' ');
+    int i = 0;
 
-    i = 0;
-    if (str[i] == '-')
+    while (split_args[i])
+    {
+        checker(split_args[i]);
+        char *temp = ft_strjoin(data->cnt_stirng, split_args[i]);
+        if (!temp)
+			error();
+        free(data->cnt_stirng);
+        data->cnt_stirng = temp;
+        temp = ft_strjoin(data->cnt_stirng, " ");
+        if (!temp)
+			error();
+        free(data->cnt_stirng);
+        data->cnt_stirng = temp;
+        free(split_args[i]);
         i++;
-    while (str[i])
-    {
-        if (!ft_isdigit(str[i]))
-        {
-            ft_printf("Error\n");
-            exit(1);
-        }
-        i++;
     }
-    char *temp = ft_strjoin(data->cnt_stirng, str);
-    if (!temp)
-    {
-        ft_printf("Error\n");
-        exit(1);
-    }
-    free(data->cnt_stirng);
-    data->cnt_stirng = temp;
-    temp = ft_strjoin(data->cnt_stirng, " ");
-    if (!temp)
-    {
-        ft_printf("Error\n");
-        exit(1);
-    }
-    free(data->cnt_stirng);
-    data->cnt_stirng = temp;
+    free(split_args);
 }
 
 static void data_init(data *data, int argc, char **argv, int i)
@@ -82,7 +66,6 @@ static void data_init(data *data, int argc, char **argv, int i)
 	data->bottom = ft_calloc(sizeof(int), 1);
 	while (i < argc)
 	{
-		checker(argv[i]);
    		parsing(data, argv[i]);
     	i++;
 	}
@@ -104,7 +87,6 @@ int	main(int argc, char **argv)
 	while (i < *(data.size))
 	{
 		data.a[i] = ft_atoi(data.ptr[i]);
-
 		data.sorted_ref[i] = ft_atoi(data.ptr[i]);
 		i++;
 	}

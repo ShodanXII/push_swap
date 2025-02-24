@@ -43,6 +43,7 @@ void	ft_select(data *data, int loc);
 void	what_to_push(data *data, char c);
 void	low_sort(data *data);
 void	what_rev_rotate(data *data, char c);
+void	error();
 void	what_to_rotate(data *data, char c);
 void    phase1(data *data);
 void print(data *data);
