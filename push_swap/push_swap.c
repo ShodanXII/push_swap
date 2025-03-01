@@ -6,29 +6,23 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 11:36:16 by achat             #+#    #+#             */
-/*   Updated: 2025/03/01 20:45:34 by achat            ###   ########.fr       */
+/*   Updated: 2025/03/01 22:16:28 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ll()
-{
-	system("leaks push_swap");
-}
-
 static void	checker(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str[i] == '-')
 		i++;
 	while (str[i])
 	{
-		if (!ft_isdigit(str[i])){
-			atexit(ll);
-			error();}
+		if (!ft_isdigit(str[i]))
+			error();
 		else if (ft_atoi(str) > INT_MAX || ft_atoi(str) < INT_MIN)
 			error();
 		i++;
@@ -37,9 +31,9 @@ static void	checker(char *str)
 
 static void	parsing(data *data, char *str)
 {
-	char **split_args;
-	int i;
-	char *temp;
+	char		**split_args;
+	int			i;
+	char		*temp;
 
 	i = 0;
 	split_args = ft_split(str, ' ');
@@ -62,7 +56,7 @@ static void	parsing(data *data, char *str)
 	free(split_args);
 }
 
-static void data_init(data *data, int argc, char **argv, int i)
+static void	data_init(data *data, int argc, char **argv, int i)
 {
 	data->start = ft_calloc(sizeof(int), 1);
 	data->end = ft_calloc(sizeof(int), 1);
@@ -73,16 +67,17 @@ static void data_init(data *data, int argc, char **argv, int i)
 	data->offset = ft_calloc(sizeof(int), 1);
 	data->middile = ft_calloc(sizeof(int), 1);
 	data->bottom = ft_calloc(sizeof(int), 1);
+	data->last_move = NULL;
 	while (i < argc)
 	{
-   		parsing(data, argv[i]);
+		parsing(data, argv[i]);
 		i++;
 	}
 	data->ptr = ft_split(data->cnt_stirng, ' ');
 	while (data->ptr[*(data->size)])
 		(*data->size)++;
-	data->a = malloc(*(data->size) * sizeof(int));;
-	data->b = malloc(*(data->size) * sizeof(int));;
+	data->a = malloc(*(data->size) * sizeof(int));
+	data->b = malloc(*(data->size) * sizeof(int));
 	data->sorted_ref = malloc(*(data->size) * sizeof(int));
 }
 
@@ -111,6 +106,5 @@ int	main(int argc, char **argv)
 	if (*(data.size) == 2)
 		low_sort(&data);
 	free_data(&data);
-	atexit(ll);
 	return (0);
 }

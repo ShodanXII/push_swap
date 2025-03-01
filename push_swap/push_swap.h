@@ -9,6 +9,7 @@
 
 typedef struct	s_data {
 	char	**ptr;
+	char 	*last_move;
 	char	*cnt_stirng;
 	int		*offset;
 	int		*start;
