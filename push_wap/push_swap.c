@@ -6,13 +6,18 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 11:36:16 by achat             #+#    #+#             */
-/*   Updated: 2025/02/24 20:54:15 by achat            ###   ########.fr       */
+/*   Updated: 2025/03/01 20:45:34 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void checker(char *str)
+void ll()
+{
+	system("leaks push_swap");
+}
+
+static void	checker(char *str)
 {
 	int i;
 
@@ -21,36 +26,40 @@ static void checker(char *str)
 		i++;
 	while (str[i])
 	{
-		if (!ft_isdigit(str[i]))
-			error();
+		if (!ft_isdigit(str[i])){
+			atexit(ll);
+			error();}
 		else if (ft_atoi(str) > INT_MAX || ft_atoi(str) < INT_MIN)
 			error();
 		i++;
 	}
 }
 
-static void parsing(data *data, char *str)
+static void	parsing(data *data, char *str)
 {
-    char **split_args = ft_split(str, ' ');
-    int i = 0;
+	char **split_args;
+	int i;
+	char *temp;
 
-    while (split_args[i])
-    {
-        checker(split_args[i]);
-        char *temp = ft_strjoin(data->cnt_stirng, split_args[i]);
-        if (!temp)
+	i = 0;
+	split_args = ft_split(str, ' ');
+	while (split_args[i])
+	{
+		checker(split_args[i]);
+		temp = ft_strjoin(data->cnt_stirng, split_args[i]);
+		if (!temp)
 			error();
-        free(data->cnt_stirng);
-        data->cnt_stirng = temp;
-        temp = ft_strjoin(data->cnt_stirng, " ");
-        if (!temp)
+		free(data->cnt_stirng);
+		data->cnt_stirng = temp;
+		temp = ft_strjoin(data->cnt_stirng, " ");
+		if (!temp)
 			error();
-        free(data->cnt_stirng);
-        data->cnt_stirng = temp;
-        free(split_args[i]);
-        i++;
-    }
-    free(split_args);
+		free(data->cnt_stirng);
+		data->cnt_stirng = temp;
+		free(split_args[i]);
+		i++;
+	}
+	free(split_args);
 }
 
 static void data_init(data *data, int argc, char **argv, int i)
@@ -67,7 +76,7 @@ static void data_init(data *data, int argc, char **argv, int i)
 	while (i < argc)
 	{
    		parsing(data, argv[i]);
-    	i++;
+		i++;
 	}
 	data->ptr = ft_split(data->cnt_stirng, ' ');
 	while (data->ptr[*(data->size)])
@@ -101,7 +110,7 @@ int	main(int argc, char **argv)
 		low_sort(&data);
 	if (*(data.size) == 2)
 		low_sort(&data);
-	// print(&data);
-	// ft_printf("size a----->%d size b --->%d  first size-------->%d\n", *(data.size), *(data.b_size), *(data.first_tottal_number));
+	free_data(&data);
+	atexit(ll);
 	return (0);
 }

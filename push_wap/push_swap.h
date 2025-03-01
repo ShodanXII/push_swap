@@ -7,7 +7,7 @@
 #include "libft/libft.h"
 #include "ft_printf/ft_printf.h"
 
-typedef struct s_data {
+typedef struct	s_data {
 	char	**ptr;
 	char	*cnt_stirng;
 	int		*offset;
@@ -46,7 +46,8 @@ void	what_rev_rotate(data *data, char c);
 void	error();
 void	what_to_rotate(data *data, char c);
 void    phase1(data *data);
-void print(data *data);
+void	print(data *data);
+void	free_data(data *data);
 void	five(data *data);
 void	five(data *data);
 void	simple_sort(data *data);

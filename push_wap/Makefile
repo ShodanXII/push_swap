@@ -14,7 +14,7 @@ SRC         := moves/push.c moves/rev_rotate.c \
 				phases/five.c phases/four.c	\
 				phases/phase1.c phases/phase2.c \
 				src/stack_needed.c push_swap.c \
-				algo_wdakxi.c
+				algo_wdakxi.c cleaner.c
 
 OBJ         := $(SRC:.c=.o)
 
