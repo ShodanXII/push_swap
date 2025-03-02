@@ -6,7 +6,7 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 12:11:33 by achat             #+#    #+#             */
-/*   Updated: 2025/03/01 22:24:27 by achat            ###   ########.fr       */
+/*   Updated: 2025/03/02 12:04:53 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ void	rr(data *stack)
 {
 	what_to_rotate(stack, 'a');
 	what_to_rotate(stack, 'b');
-	ft_printf("rr\n");
+	write(1, "rr\n", 3);
 }

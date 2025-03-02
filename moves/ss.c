@@ -6,7 +6,7 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 12:00:59 by achat             #+#    #+#             */
-/*   Updated: 2025/02/22 01:32:57 by achat            ###   ########.fr       */
+/*   Updated: 2025/03/02 12:05:17 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ void ss(data *stack_a, data *stack_b)
 {
     what_to_swap(stack_a, 'a');
     what_to_swap(stack_b, 'b');
-    ft_printf("ss\n");
+    write(1, "ss\n", 3);
 }
