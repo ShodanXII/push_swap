@@ -6,40 +6,40 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 00:26:45 by achat             #+#    #+#             */
-/*   Updated: 2025/03/02 11:13:12 by achat            ###   ########.fr       */
+/*   Updated: 2025/03/03 15:43:28 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static void	push_first(data *data)
+static void	push_first(t_data *t_data)
 {
-	while (*(data->b_size) <= (*(data->end) - *(data->start)))
+	while (*(t_data->b_size) <= (*(t_data->end) - *(t_data->start)))
 	{
-		if (data->a[0] >= data->sorted_ref[*(data->start)]
-			&& data->a[0] <= data->sorted_ref[*data->end])
+		if (t_data->a[0] >= t_data->sorted_ref[*(t_data->start)]
+			&& t_data->a[0] <= t_data->sorted_ref[*t_data->end])
 		{
-			what_to_push(data, 'b');
-			if (data->b[0] < data->sorted_ref[*(data->middile)])
-				what_to_rotate(data, 'b');
+			what_to_push(t_data, 'b');
+			if (t_data->b[0] < t_data->sorted_ref[*(t_data->middile)])
+				what_to_rotate(t_data, 'b');
 		}
 		else
-			what_to_rotate(data, 'a');
+			what_to_rotate(t_data, 'a');
 	}
-	*(data->start) -= *(data->offset);
-	if (*(data->start) < 0)
-		*(data->start) = 0;
-	*(data->end) += *(data->offset);
-	if (*(data->end) >= *(data->first_tottal_number))
-		*(data->end) = *(data->first_tottal_number) - 1;
+	*(t_data->start) -= *(t_data->offset);
+	if (*(t_data->start) < 0)
+		*(t_data->start) = 0;
+	*(t_data->end) += *(t_data->offset);
+	if (*(t_data->end) >= *(t_data->first_tottal_number))
+		*(t_data->end) = *(t_data->first_tottal_number) - 1;
 }
 
-void	phase1(data *data)
+void	phase1(t_data *t_data)
 {
-	if (*(data->size) > 5)
+	if (*(t_data->size) > 5)
 	{
-		*(data->first_tottal_number) = *(data->size);
-		while (*(data->size) != 0)
-			push_first(data);
+		*(t_data->first_tottal_number) = *(t_data->size);
+		while (*(t_data->size) != 0)
+			push_first(t_data);
 	}
 }

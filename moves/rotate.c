@@ -6,7 +6,7 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 12:06:13 by achat             #+#    #+#             */
-/*   Updated: 2025/03/02 11:04:45 by achat            ###   ########.fr       */
+/*   Updated: 2025/03/03 15:43:28 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,18 @@ static void	ft_rotate(int *stack, int *size)
 	stack[j] = tmp;
 }
 
-void	what_to_rotate(data *data, char c)
+void	what_to_rotate(t_data *t_data, char c)
 {
-	if (data->size == 0)
+	if (t_data->size == 0)
 		error();
 	if (c == 'a')
 	{
-		ft_rotate(data->a, data->size);
+		ft_rotate(t_data->a, t_data->size);
 		write(1, "ra\n", 3);
 	}
 	else if (c == 'b')
 	{
-		ft_rotate(data->b, data->b_size);
+		ft_rotate(t_data->b, t_data->b_size);
 		write(1, "rb\n", 3);
 	}
 }
-

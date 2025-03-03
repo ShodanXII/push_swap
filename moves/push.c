@@ -6,27 +6,28 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 12:01:38 by achat             #+#    #+#             */
-/*   Updated: 2025/03/02 11:04:12 by achat            ###   ########.fr       */
+/*   Updated: 2025/03/03 15:43:28 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	what_to_push(data *data, char c)
+void	what_to_push(t_data *t_data, char c)
 {
-	if(!data->a && !data->b)
+	if (!t_data->a && !t_data->b)
 		error();
 	if (c == 'a')
 	{
-		ft_push(data->b, data->a, data->b_size, data->size);
+		ft_push(t_data->b, t_data->a, t_data->b_size, t_data->size);
 		write(1, "pa\n", 3);
 	}
 	else if (c == 'b')
 	{
-		ft_push(data->a, data->b, data->size, data->b_size);
+		ft_push(t_data->a, t_data->b, t_data->size, t_data->b_size);
 		write(1, "pb\n", 3);
 	}
 }
+
 void	ft_push(int *from, int *to, int *from_count, int *to_count)
 {
 	int	i;

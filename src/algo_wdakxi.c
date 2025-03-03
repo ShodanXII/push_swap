@@ -6,18 +6,18 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 20:20:15 by achat             #+#    #+#             */
-/*   Updated: 2025/03/01 21:58:07 by achat            ###   ########.fr       */
+/*   Updated: 2025/03/03 15:43:28 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	algo_wdakxi(data *data)
+void	algo_wdakxi(t_data *t_data)
 {
-	if (!is_sorted(data))
+	if (!is_sorted(t_data))
 	{
-		check_what_to_do(data);
-		phase1(data);
+		check_what_to_do(t_data);
+		phase1(t_data);
 	}
 }
 
@@ -27,7 +27,7 @@ void	error(void)
 	exit(1);
 }
 
-void	bubble_sort(data *data, int size)
+void	bubble_sort(t_data *t_data, int size)
 {
 	int	i;
 	int	j;
@@ -39,11 +39,11 @@ void	bubble_sort(data *data, int size)
 		j = i + 1;
 		while (j < size)
 		{
-			if (data->sorted_ref[i] > data->sorted_ref[j])
+			if (t_data->sorted_ref[i] > t_data->sorted_ref[j])
 			{
-				temp = data->sorted_ref[i];
-				data->sorted_ref[i] = data->sorted_ref[j];
-				data->sorted_ref[j] = temp;
+				temp = t_data->sorted_ref[i];
+				t_data->sorted_ref[i] = t_data->sorted_ref[j];
+				t_data->sorted_ref[j] = temp;
 			}
 			j++;
 		}

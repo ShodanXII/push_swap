@@ -6,7 +6,7 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 12:12:21 by achat             #+#    #+#             */
-/*   Updated: 2025/03/02 12:15:58 by achat            ###   ########.fr       */
+/*   Updated: 2025/03/03 15:43:28 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@ void	rev_rotate(int *stack, int *count)
 	stack[0] = tmp;
 }
 
-void	what_rev_rotate(data *data, char c)
+void	what_rev_rotate(t_data *t_data, char c)
 {
-	if (data->size == 0)
+	if (t_data->size == 0)
 		error();
 	if (c == 'a')
 	{
-		rev_rotate(data->a, data->size);
+		rev_rotate(t_data->a, t_data->size);
 		write(1, "rra\n", 4);
 	}
 	else if (c == 'b')
 	{
-		rev_rotate(data->b, data->b_size);
+		rev_rotate(t_data->b, t_data->b_size);
 		write(1, "rrb\n", 4);
 	}
 }

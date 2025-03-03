@@ -6,15 +6,15 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 12:00:59 by achat             #+#    #+#             */
-/*   Updated: 2025/03/02 12:05:17 by achat            ###   ########.fr       */
+/*   Updated: 2025/03/03 15:43:28 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void ss(data *stack_a, data *stack_b)
+void	ss(t_data *stack_a, t_data *stack_b)
 {
-    what_to_swap(stack_a, 'a');
-    what_to_swap(stack_b, 'b');
-    write(1, "ss\n", 3);
+	what_to_swap(stack_a, 'a');
+	what_to_swap(stack_b, 'b');
+	write(1, "ss\n", 3);
 }
