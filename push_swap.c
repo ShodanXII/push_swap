@@ -6,7 +6,7 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 11:36:16 by achat             #+#    #+#             */
-/*   Updated: 2025/03/03 15:43:28 by achat            ###   ########.fr       */
+/*   Updated: 2025/03/03 16:17:34 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,11 @@ static void	checker(char *str)
 
 	i = 0;
 	if (str[i] == '-')
+	{
 		i++;
+		if (!str[i] || !ft_isdigit(str[i]))
+			error();
+	}
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
@@ -98,6 +102,7 @@ static void	t_data_init(t_data *t_data, int argc, char **argv, int i)
 
 int	main(int argc, char **argv)
 {
+	// atexit(ll);
 	t_data	t_data;
 	int		i;
 

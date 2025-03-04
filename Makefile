@@ -3,8 +3,6 @@ CFLAGS  := -Wall -Wextra -Werror
 
 LIBFTDIR    := libft
 
-LIBFT       := $(LIBFTDIR)/libft.a
-
 SRC         := moves/push.c moves/rev_rotate.c \
 				moves/rotate.c moves/rr.c		\
 				moves/rrr.c moves/ss.c			\
@@ -12,32 +10,30 @@ SRC         := moves/push.c moves/rev_rotate.c \
 				phases/five.c phases/four.c	\
 				phases/phase1.c phases/phase2.c \
 				src/stack_needed.c push_swap.c \
-				src/algo_wdakxi.c src/cleaner.c
+				src/algo_wdakxi.c src/cleaner.c \
+				src/ft_atoi.c src/ft_isdigit.c \
+				src/ft_strjoin.c src/ft_split.c \
+				src/ft_calloc.c src/ft_strdup.c \
+				src/ft_strlen.c src/ft_strlcpy.c \
+				src/ft_memcpy.c
 
 OBJ         := $(SRC:.c=.o)
 
 NAME        := push_swap
 
-INCLUDES    := -I. -I$(LIBFTDIR)
+all: $(NAME)
 
-all: $(LIBFT) $(NAME)
-
-$(NAME): $(OBJ) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.c push_swap.h
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-$(LIBFT):
-	$(MAKE) -C $(LIBFTDIR)
-
 clean:
 	rm -f $(OBJ)
-	$(MAKE) -C $(LIBFTDIR) clean
 
 fclean: clean
 	rm -f $(NAME)
-	$(MAKE) -C $(LIBFTDIR) fclean
 
 re: fclean all
 
