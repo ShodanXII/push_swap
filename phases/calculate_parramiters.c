@@ -6,7 +6,7 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 23:08:59 by achat             #+#    #+#             */
-/*   Updated: 2025/03/03 15:43:28 by achat            ###   ########.fr       */
+/*   Updated: 2025/03/06 13:47:01 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,18 +57,18 @@ void	check_what_to_do(t_data *t_data)
 	check_dup(t_data);
 }
 
-void	ft_select(t_data *t_data, int loc)
+void	ft_select(t_data *t_data, int location)
 {
-	if (loc == 0)
+	if (location == 0)
 		return ;
-	else if (loc == 1)
+	else if (location == 1)
 		what_to_swap(t_data, 'a');
-	else if (loc == 2)
+	else if (location == 2)
 	{
 		what_to_rotate(t_data, 'a');
 		what_to_rotate(t_data, 'a');
 	}
-	else if (loc == 3 && *(t_data->size) == 5)
+	else if (location == 3 && *(t_data->size) == 5)
 	{
 		what_rev_rotate(t_data, 'a');
 		what_rev_rotate(t_data, 'a');

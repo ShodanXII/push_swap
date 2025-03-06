@@ -6,7 +6,7 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 15:37:08 by achat             #+#    #+#             */
-/*   Updated: 2025/03/04 12:22:59 by achat            ###   ########.fr       */
+/*   Updated: 2025/03/06 13:47:36 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	ft_swap(int *stack);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 int		ft_atoi(const char *str);
 char	*ft_strjoin(char const *s1, char const *s2);
-void	ft_push(int *from, int *to, int *from_count, int *to_count);
+void	ft_push(int *from, int *to, int *from_size, int *to_size);
 void	check_what_to_do(t_data *t_data);
 void	what_rev_rotate(t_data *t_data, char c);
 int		ft_isdigit(int c);
@@ -57,7 +57,7 @@ void	phase2(t_data *t_data);
 void	last_in_first_out(t_data *t_data, int i);
 char	**ft_split(const char *s, char c);
 void	four(t_data *t_data);
-void	ft_select(t_data *t_data, int loc);
+void	ft_select(t_data *t_data, int location);
 void	what_to_push(t_data *t_data, char c);
 void	low_sort(t_data *t_data);
 void	what_rev_rotate(t_data *t_data, char c);

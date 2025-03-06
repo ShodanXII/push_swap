@@ -6,7 +6,7 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 12:01:38 by achat             #+#    #+#             */
-/*   Updated: 2025/03/03 15:43:28 by achat            ###   ########.fr       */
+/*   Updated: 2025/03/06 12:20:22 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,25 @@ void	what_to_push(t_data *t_data, char c)
 	}
 }
 
-void	ft_push(int *from, int *to, int *from_count, int *to_count)
+void	ft_push(int *from, int *to, int *from_size, int *to_size)
 {
 	int	i;
 
-	if (*from_count == 0)
+	if (*from_size == 0)
 		return ;
-	i = *to_count + 1;
-	while (--i > 0)
+	i = *to_size;
+	while (i > 0)
+	{
 		to[i] = to[i - 1];
+		i--;
+	}
 	to[0] = from[0];
 	i = 0;
-	while (i + 1 < *from_count)
+	while (i + 1 < *from_size)
 	{
 		from[i] = from[i + 1];
 		i++;
 	}
-	(*from_count)--;
-	(*to_count)++;
+	(*from_size)--;
+	(*to_size)++;
 }
