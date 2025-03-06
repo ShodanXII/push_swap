@@ -6,7 +6,7 @@
 /*   By: achat <achat@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 00:26:45 by achat             #+#    #+#             */
-/*   Updated: 2025/03/06 14:12:07 by achat            ###   ########.fr       */
+/*   Updated: 2025/03/06 16:12:12 by achat            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ static void	push_first(t_data *t_data)
 			&& t_data->a[0] <= t_data->sorted_ref[*t_data->end])
 		{
 			what_to_push(t_data, 'b');
-			if ((t_data->b[0] < t_data->sorted_ref[*(t_data->middile)]) && ((*t_data->b_size > 1)))
-					what_to_rotate(t_data, 'b');
+			if ((t_data->b[0] < t_data->sorted_ref[*(t_data->middile)]) 
+				&& ((*t_data->b_size > 1)))
+				what_to_rotate(t_data, 'b');
 		}
 		else
 			what_to_rotate(t_data, 'a');
