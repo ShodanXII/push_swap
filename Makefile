@@ -1,7 +1,6 @@
 CC      := cc
 CFLAGS  := -Wall -Wextra -Werror
 
-LIBFTDIR    := libft
 
 SRC         := moves/push.c moves/rev_rotate.c \
 				moves/rotate.c moves/rr.c		\
